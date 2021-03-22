@@ -17,7 +17,7 @@ services:
       - DB_DATABASE=MoviesDB
       - DB_PASSWORD=movies1234
     depends_on:
-      - movies_db
+      - mariadb
     ports:
       - 3000:3000
     volumes:
