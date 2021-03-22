@@ -1,17 +1,12 @@
 version: '3'
 services:
-  movies_db:
-    image: mysql:5.7
-    volumes:
-      - "./.mysql-data/db:/var/lib/mysql"
-    restart: always
-    ports:
-      - 3306:3306
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.2-debian-10'
     environment:
-      MYSQL_ROOT_PASSWORD: toor2021
-      MYSQL_DATABASE: MoviesDB
-      MYSQL_USER: moviesUser
-      MYSQL_PASSWORD: movies1234
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=moviesUser
+      - MARIADB_DATABASE=MoviesDB
+      - MARIADB_PASSWORD=movies1234
 
   movies:
     tty: true
